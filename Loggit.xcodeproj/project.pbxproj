@@ -417,6 +417,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WA3KPNE52J;
 				INFOPLIST_FILE = Loggit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fbreidenbach.Loggit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,6 +431,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WA3KPNE52J;
 				INFOPLIST_FILE = Loggit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fbreidenbach.Loggit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -514,6 +516,7 @@
 				06F91A8D1F4D429A00FAE71F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		06F91A8E1F4D429A00FAE71F /* Build configuration list for PBXNativeTarget "LoggitTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +525,7 @@
 				06F91A901F4D429A00FAE71F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		06F91A911F4D429A00FAE71F /* Build configuration list for PBXNativeTarget "LoggitUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +534,7 @@
 				06F91A931F4D429A00FAE71F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
