@@ -24,3 +24,31 @@ class ProjectListViewController: UIViewController {
 
 }
 
+
+extension ProjectListViewController: UITableViewDelegate {
+  
+  
+  
+}
+
+
+
+extension ProjectListViewController: UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 10
+  }
+  
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "StaticCell")
+    
+    cell.textLabel?.text = "Cell Number \(indexPath.row)"
+    cell.detailTextLabel?.text = "This is a subtitle"
+    cell.accessoryType = .disclosureIndicator
+    
+    return cell
+    
+  }
+  
+}
