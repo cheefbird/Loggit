@@ -24,10 +24,10 @@ enum TeamworkRouter: URLRequestConvertible {
     switch self {
       
     case .getProjects:
-      return TeamworkService.shared.baseURL.appendingPathComponent("/projects.json")
+      return TeamworkClient.shared.baseURL.appendingPathComponent("/projects.json")
       
     case .getProject(let id):
-      return TeamworkService.shared.baseURL.appendingPathComponent("/projects/\(id).json")
+      return TeamworkClient.shared.baseURL.appendingPathComponent("/projects/\(id).json")
     }
   }
   
@@ -40,7 +40,7 @@ enum TeamworkRouter: URLRequestConvertible {
   private var headers: HTTPHeaders {
     var tempHeaders = HTTPHeaders()
     
-    let authKey = encode(apiKey: TeamworkService.shared.savedKey)
+    let authKey = encode(apiKey: TeamworkClient.shared.savedKey)
     
     tempHeaders["Authorization"] = "Basic \(authKey)"
     

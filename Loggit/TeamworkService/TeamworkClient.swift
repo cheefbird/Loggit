@@ -1,5 +1,5 @@
 //
-//  TeamworkService.swift
+//  TeamworkClient.swift
 //  Loggit
 //
 //  Created by Francis Breidenbach on 8/22/17.
@@ -10,11 +10,11 @@ import Foundation
 import Alamofire
 
 
-class TeamworkService: TeamworkSettings {
+class TeamworkClient: TeamworkSettings {
   
   
   // MARK: - Singleton
-  static let shared = TeamworkService()
+  static let shared = TeamworkClient()
   
   private init() { }
   
