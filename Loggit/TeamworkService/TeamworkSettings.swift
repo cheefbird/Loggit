@@ -18,7 +18,7 @@ protocol TeamworkSettings {
 }
 
 
-extension TeamworkSettings where Self: TeamworkClient {
+extension TeamworkSettings {
   
   var savedUrl: URL {
     return URL(string: "https://ciestudios.teamwork.com")!

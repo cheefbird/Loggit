@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064E91FA1F53FE1A0040332A /* TeamworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064E91F91F53FE1A0040332A /* TeamworkClientTests.swift */; };
 		06E92BB71F4D5AC200396356 /* TeamworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E92BB61F4D5AC200396356 /* TeamworkSettings.swift */; };
 		06E92BB91F4D5BF800396356 /* TeamworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E92BB81F4D5BF800396356 /* TeamworkClient.swift */; };
 		06E92BBF1F4D5DE300396356 /* TeamworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E92BBE1F4D5DE300396356 /* TeamworkRouter.swift */; };
@@ -15,7 +16,6 @@
 		06F91A6C1F4D429A00FAE71F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F91A6A1F4D429A00FAE71F /* Main.storyboard */; };
 		06F91A6E1F4D429A00FAE71F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06F91A6D1F4D429A00FAE71F /* Assets.xcassets */; };
 		06F91A711F4D429A00FAE71F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F91A6F1F4D429A00FAE71F /* LaunchScreen.storyboard */; };
-		06F91A7C1F4D429A00FAE71F /* LoggitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F91A7B1F4D429A00FAE71F /* LoggitTests.swift */; };
 		06F91A871F4D429A00FAE71F /* LoggitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F91A861F4D429A00FAE71F /* LoggitUITests.swift */; };
 		346447556448328BDDBD3343 /* Pods_LoggitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B406274602A738B25168C /* Pods_LoggitTests.framework */; };
 		7E7BAC619C1C31F7B3A66350 /* Pods_Loggit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D79130DE251777A5520E3686 /* Pods_Loggit.framework */; };
@@ -40,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		064E91F91F53FE1A0040332A /* TeamworkClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamworkClientTests.swift; path = "Test Cases/TeamworkClientTests.swift"; sourceTree = "<group>"; };
 		06E92BB61F4D5AC200396356 /* TeamworkSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamworkSettings.swift; path = TeamworkService/TeamworkSettings.swift; sourceTree = "<group>"; };
 		06E92BB81F4D5BF800396356 /* TeamworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamworkClient.swift; path = TeamworkService/TeamworkClient.swift; sourceTree = "<group>"; };
 		06E92BBE1F4D5DE300396356 /* TeamworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamworkRouter.swift; path = TeamworkService/TeamworkRouter.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		06F91A701F4D429A00FAE71F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06F91A721F4D429A00FAE71F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06F91A771F4D429A00FAE71F /* LoggitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		06F91A7B1F4D429A00FAE71F /* LoggitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggitTests.swift; sourceTree = "<group>"; };
 		06F91A7D1F4D429A00FAE71F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06F91A821F4D429A00FAE71F /* LoggitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F91A861F4D429A00FAE71F /* LoggitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggitUITests.swift; sourceTree = "<group>"; };
@@ -95,6 +95,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		064E91F61F53FD9C0040332A /* Test Cases */ = {
+			isa = PBXGroup;
+			children = (
+				064E91F91F53FE1A0040332A /* TeamworkClientTests.swift */,
+			);
+			name = "Test Cases";
+			sourceTree = "<group>";
+		};
+		064E91F71F53FDA30040332A /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Stubs;
+			sourceTree = "<group>";
+		};
+		064E91F81F53FDAB0040332A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		06D0B9D51F4D4EBE00157A91 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +174,9 @@
 		06F91A7A1F4D429A00FAE71F /* LoggitTests */ = {
 			isa = PBXGroup;
 			children = (
-				06F91A7B1F4D429A00FAE71F /* LoggitTests.swift */,
+				064E91F61F53FD9C0040332A /* Test Cases */,
+				064E91F71F53FDA30040332A /* Stubs */,
+				064E91F81F53FDAB0040332A /* Extensions */,
 				06F91A7D1F4D429A00FAE71F /* Info.plist */,
 			);
 			path = LoggitTests;
@@ -203,7 +227,6 @@
 				06F91A611F4D429A00FAE71F /* Resources */,
 				21DB3789EC9B9ADBE3D8E501 /* [CP] Embed Pods Frameworks */,
 				1EEAA44247F89D8A2C91A79F /* [CP] Copy Pods Resources */,
-				06D0B9D61F4D530B00157A91 /* Remove CocoaPods Headers */,
 			);
 			buildRules = (
 			);
@@ -274,6 +297,7 @@
 					06F91A761F4D429A00FAE71F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = WA3KPNE52J;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 06F91A621F4D429A00FAE71F;
 					};
@@ -333,20 +357,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		06D0B9D61F4D530B00157A91 /* Remove CocoaPods Headers */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Remove CocoaPods Headers";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "function removeHeaders() {\n    find $BUILD_ROOT/Debug-iphonesimulator/  -name '*.h' -exec rm -f {} \\;\n}\nremoveHeaders";
-		};
 		1EEAA44247F89D8A2C91A79F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -534,7 +544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06F91A7C1F4D429A00FAE71F /* LoggitTests.swift in Sources */,
+				064E91FA1F53FE1A0040332A /* TeamworkClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,11 +720,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = WA3KPNE52J;
 				INFOPLIST_FILE = LoggitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fbreidenbach.LoggitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Loggit.app/Loggit";
 			};
@@ -726,6 +738,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = WA3KPNE52J;
 				INFOPLIST_FILE = LoggitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
