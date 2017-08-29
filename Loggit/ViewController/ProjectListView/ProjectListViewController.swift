@@ -10,19 +10,25 @@ import UIKit
 
 class ProjectListViewController: UIViewController {
   
-  @IBOutlet weak var tableView: UITableView!
+  // MARK: - Outlets
   
-
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var segmentedControl: UISegmentedControl!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
     navigationController?.navigationBar.shadowImage = UIImage()
     
+    
+    
   }
   
-
-
+  
+  
+  
+  
 }
 
 
@@ -37,18 +43,14 @@ extension ProjectListViewController: UITableViewDelegate {
 extension ProjectListViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return 1
   }
   
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "StaticCell")
     
-    cell.textLabel?.text = "Cell Number \(indexPath.row)"
-    cell.detailTextLabel?.text = "This is a subtitle"
-    cell.accessoryType = .disclosureIndicator
     
-    return cell
+    return UITableViewCell()
     
   }
   

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -43,6 +44,50 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4kD-Ao-w5h">
                                 <rect key="frame" x="0.0" y="40" width="375" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProjectCell" rowHeight="60" id="ffY-Fh-TFa" customClass="ProjectListTableViewCell" customModule="Loggit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ffY-Fh-TFa" id="Uj0-Di-33Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEA-2D-rf0">
+                                                    <rect key="frame" x="8" y="8" width="108.5" height="26.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="companyLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltU-r5-jSu">
+                                                    <rect key="frame" x="8" y="35.5" width="82.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRo-gc-ly1">
+                                                    <rect key="frame" x="327" y="9" width="40" height="40"/>
+                                                    <state key="normal" image="icon_favorite"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iEA-2D-rf0" firstAttribute="leading" secondItem="Uj0-Di-33Z" secondAttribute="leadingMargin" id="7M5-8O-MLq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CRo-gc-ly1" secondAttribute="trailing" id="D1u-3s-8RZ"/>
+                                                <constraint firstItem="iEA-2D-rf0" firstAttribute="top" secondItem="Uj0-Di-33Z" secondAttribute="topMargin" id="OKV-L4-8C0"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="ltU-r5-jSu" secondAttribute="bottom" id="XWN-n4-tmc"/>
+                                                <constraint firstItem="CRo-gc-ly1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ltU-r5-jSu" secondAttribute="trailing" constant="10" id="ZcX-Jb-Neg"/>
+                                                <constraint firstItem="CRo-gc-ly1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iEA-2D-rf0" secondAttribute="trailing" constant="5" id="eMS-H6-UDg"/>
+                                                <constraint firstItem="CRo-gc-ly1" firstAttribute="centerY" secondItem="Uj0-Di-33Z" secondAttribute="centerY" id="gnA-Nf-UUL"/>
+                                                <constraint firstItem="ltU-r5-jSu" firstAttribute="top" secondItem="iEA-2D-rf0" secondAttribute="bottom" constant="1" id="hcv-PW-Mep"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="ltU-r5-jSu" secondAttribute="leading" id="lLF-BH-EUc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="companyLabel" destination="ltU-r5-jSu" id="jW4-AF-bZC"/>
+                                            <outlet property="favoriteButton" destination="CRo-gc-ly1" id="ZjR-86-nZA"/>
+                                            <outlet property="nameLabel" destination="iEA-2D-rf0" id="yCf-kZ-rEj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="6e6-yG-fHd"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="a8b-Md-ksc"/>
@@ -63,6 +108,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="FD3-zq-3YG"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="e8n-k0-w60" id="cCi-3S-kqq"/>
                         <outlet property="tableView" destination="4kD-Ao-w5h" id="FlW-PU-Oda"/>
                     </connections>
                 </viewController>
@@ -135,4 +181,7 @@
             <point key="canvasLocation" x="1737" y="1164"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_favorite" width="40" height="40"/>
+    </resources>
 </document>
