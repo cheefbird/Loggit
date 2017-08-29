@@ -292,18 +292,20 @@
 					06F91A621F4D429A00FAE71F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = WA3KPNE52J;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					06F91A761F4D429A00FAE71F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = WA3KPNE52J;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 06F91A621F4D429A00FAE71F;
 					};
 					06F91A811F4D429A00FAE71F = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = WA3KPNE52J;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 06F91A621F4D429A00FAE71F;
 					};
