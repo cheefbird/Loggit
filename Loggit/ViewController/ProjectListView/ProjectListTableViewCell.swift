@@ -26,7 +26,9 @@ class ProjectListTableViewCell: UITableViewCell {
   
   // MARK: - Methods
   
-  func configure(withProject project: String) {
+  func configure() {
+    nameLabel.text = "SleepScore Mobile Application That May Not Launch"
+    companyLabel.text = "SleepScore Labs"
     
   }
   

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,11 +46,11 @@
                                 <rect key="frame" x="0.0" y="40" width="375" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProjectCell" rowHeight="60" id="ffY-Fh-TFa" customClass="ProjectListTableViewCell" customModule="Loggit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProjectCell" rowHeight="66" id="ffY-Fh-TFa" customClass="ProjectListTableViewCell" customModule="Loggit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ffY-Fh-TFa" id="Uj0-Di-33Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEA-2D-rf0">
@@ -59,13 +60,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="companyLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltU-r5-jSu">
-                                                    <rect key="frame" x="8" y="35.5" width="82.5" height="14.5"/>
+                                                    <rect key="frame" x="8" y="39.5" width="82.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRo-gc-ly1">
-                                                    <rect key="frame" x="327" y="9" width="40" height="40"/>
+                                                    <rect key="frame" x="327" y="13" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="CRo-gc-ly1" secondAttribute="height" multiplier="1:1" id="1h4-7q-zv7"/>
+                                                    </constraints>
                                                     <state key="normal" image="icon_favorite"/>
                                                 </button>
                                             </subviews>
@@ -74,10 +78,10 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="CRo-gc-ly1" secondAttribute="trailing" id="D1u-3s-8RZ"/>
                                                 <constraint firstItem="iEA-2D-rf0" firstAttribute="top" secondItem="Uj0-Di-33Z" secondAttribute="topMargin" id="OKV-L4-8C0"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="ltU-r5-jSu" secondAttribute="bottom" id="XWN-n4-tmc"/>
-                                                <constraint firstItem="CRo-gc-ly1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ltU-r5-jSu" secondAttribute="trailing" constant="10" id="ZcX-Jb-Neg"/>
-                                                <constraint firstItem="CRo-gc-ly1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iEA-2D-rf0" secondAttribute="trailing" constant="5" id="eMS-H6-UDg"/>
+                                                <constraint firstItem="CRo-gc-ly1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ltU-r5-jSu" secondAttribute="trailing" constant="15" id="ZcX-Jb-Neg"/>
+                                                <constraint firstItem="CRo-gc-ly1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iEA-2D-rf0" secondAttribute="trailing" constant="15" id="eMS-H6-UDg"/>
                                                 <constraint firstItem="CRo-gc-ly1" firstAttribute="centerY" secondItem="Uj0-Di-33Z" secondAttribute="centerY" id="gnA-Nf-UUL"/>
-                                                <constraint firstItem="ltU-r5-jSu" firstAttribute="top" secondItem="iEA-2D-rf0" secondAttribute="bottom" constant="1" id="hcv-PW-Mep"/>
+                                                <constraint firstItem="ltU-r5-jSu" firstAttribute="top" secondItem="iEA-2D-rf0" secondAttribute="bottom" constant="5" id="hcv-PW-Mep"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="ltU-r5-jSu" secondAttribute="leading" id="lLF-BH-EUc"/>
                                             </constraints>
                                         </tableViewCellContentView>

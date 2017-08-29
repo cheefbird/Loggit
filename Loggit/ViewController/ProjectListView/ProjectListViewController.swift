@@ -15,24 +15,24 @@ class ProjectListViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var segmentedControl: UISegmentedControl!
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
     navigationController?.navigationBar.shadowImage = UIImage()
     
-    
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 60
     
   }
-  
-  
-  
-  
   
 }
 
 
 extension ProjectListViewController: UITableViewDelegate {
+  
+  
   
   
   
@@ -42,6 +42,7 @@ extension ProjectListViewController: UITableViewDelegate {
 
 extension ProjectListViewController: UITableViewDataSource {
   
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 1
   }
@@ -49,8 +50,11 @@ extension ProjectListViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath) as! ProjectListTableViewCell
     
-    return UITableViewCell()
+    cell.configure()
+    
+    return cell
     
   }
   
