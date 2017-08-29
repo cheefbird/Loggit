@@ -10,8 +10,8 @@ target 'Loggit' do
   pod 'Alamofire'
   pod 'RxAlamofire'
   pod 'RealmSwift'
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'RxSwift', :inhibit_warnings => true
+  pod 'RxCocoa', :inhibit_warnings => true
   pod 'Action'
 
   target 'LoggitTests' do
