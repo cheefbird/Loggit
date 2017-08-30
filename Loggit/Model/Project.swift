@@ -18,13 +18,31 @@ class Project: Object {
   dynamic var starred = false
   dynamic var logo = ""
   dynamic var id = 0
-  dynamic var company = ""
+  dynamic var companyName = ""
   dynamic var name = ""
   
   
   // MARK: - Computed Properties
   
+  var logoImageUrl: URL? {
+    return URL(string: logo) ?? nil
+  }
   
+  
+  // MARK: - JSON Initialize
+  convenience init(fromJSON json: JSON) {
+    self.init()
+    
+    starred = json["starred"].boolValue
+    
+    if let logoString = json["logo"].string {
+      logo = logoString
+    }
+    
+    id = json["id"].intValue
+    companyName = json["company"]["name"].stringValue
+    name = json["name"].stringValue
+  }
   
 }
 
