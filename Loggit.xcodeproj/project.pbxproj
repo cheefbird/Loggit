@@ -11,6 +11,7 @@
 		064A5D271F56909B007D1838 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064A5D261F56909B007D1838 /* Project.swift */; };
 		064E91FA1F53FE1A0040332A /* TeamworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064E91F91F53FE1A0040332A /* TeamworkClientTests.swift */; };
 		065E713E1F569F9800300A9D /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065E713D1F569F9800300A9D /* ProjectTests.swift */; };
+		065E71431F56A44B00300A9D /* ProjectStubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065E71421F56A44B00300A9D /* ProjectStubs.swift */; };
 		06E92BB71F4D5AC200396356 /* TeamworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E92BB61F4D5AC200396356 /* TeamworkSettings.swift */; };
 		06E92BB91F4D5BF800396356 /* TeamworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E92BB81F4D5BF800396356 /* TeamworkClient.swift */; };
 		06E92BBF1F4D5DE300396356 /* TeamworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E92BBE1F4D5DE300396356 /* TeamworkRouter.swift */; };
@@ -48,6 +49,7 @@
 		064A5D261F56909B007D1838 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Model/Project.swift; sourceTree = "<group>"; };
 		064E91F91F53FE1A0040332A /* TeamworkClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamworkClientTests.swift; path = "Test Cases/TeamworkClientTests.swift"; sourceTree = "<group>"; };
 		065E713D1F569F9800300A9D /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectTests.swift; path = "Test Cases/Models/ProjectTests.swift"; sourceTree = "<group>"; };
+		065E71421F56A44B00300A9D /* ProjectStubs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectStubs.swift; path = Stubs/ProjectStubs.swift; sourceTree = "<group>"; };
 		06E92BB61F4D5AC200396356 /* TeamworkSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamworkSettings.swift; path = TeamworkService/TeamworkSettings.swift; sourceTree = "<group>"; };
 		06E92BB81F4D5BF800396356 /* TeamworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamworkClient.swift; path = TeamworkService/TeamworkClient.swift; sourceTree = "<group>"; };
 		06E92BBE1F4D5DE300396356 /* TeamworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamworkRouter.swift; path = TeamworkService/TeamworkRouter.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		064E91F71F53FDA30040332A /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
+				065E71421F56A44B00300A9D /* ProjectStubs.swift */,
 			);
 			name = Stubs;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				064E91FA1F53FE1A0040332A /* TeamworkClientTests.swift in Sources */,
+				065E71431F56A44B00300A9D /* ProjectStubs.swift in Sources */,
 				065E713E1F569F9800300A9D /* ProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

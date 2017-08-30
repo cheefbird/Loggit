@@ -6,30 +6,108 @@
 //  Copyright © 2017 Francis Breidenbach. All rights reserved.
 //
 
+import SwiftyJSON
+import RealmSwift
 import XCTest
+@testable import Loggit
 
 class ProjectTests: XCTestCase {
+  
+  // MARK: - Properties
+  
+  var realm: Realm!
+  
+  let config = Realm.Configuration(
+    fileURL: nil,
+    inMemoryIdentifier: "test",
+    syncConfiguration: nil,
+    encryptionKey: nil,
+    readOnly: false,
+    schemaVersion: 0,
+    migrationBlock: nil,
+    deleteRealmIfMigrationNeeded: true,
+    shouldCompactOnLaunch: nil,
+    objectTypes: nil)
+  
+  override func setUp() {
+    super.setUp()
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    realm = try! Realm(configuration: config)
+    
+    try! realm.write {
+      realm.deleteAll()
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+  }
+  
+  override func tearDown() {
+    super.tearDown()
+  }
+  
+  
+  // MARK: - Tests for JSON Init
+  
+  func test_ProjectInit_WithLogo() {
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    let json = mockProjectJSON(withLogoString: "http://clean-swift.com/wp-content/uploads/2015/08/Swift.png")
+    let project = Project(fromJSON: json)
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    debugPrint(project)
     
+    XCTAssertEqual(project.starred, false)
+    XCTAssertEqual(project.logo, "http://clean-swift.com/wp-content/uploads/2015/08/Swift.png")
+    XCTAssertEqual(project.id, 123456)
+    XCTAssertEqual(project.companyName, "SleepScore Labs")
+    XCTAssertEqual(project.name, "SleepScore Max Mobile App")
+  }
+  
+  func test_ProjectInit_WithoutLogo() {
+    
+    let json = mockProjectJSON()
+    let project = Project(fromJSON: json)
+    
+    debugPrint(project)
+    
+    XCTAssertEqual(project.starred, false)
+    XCTAssertEqual(project.logo, "")
+    XCTAssertEqual(project.id, 123456)
+    XCTAssertEqual(project.companyName, "SleepScore Labs")
+    XCTAssertEqual(project.name, "SleepScore Max Mobile App")
+  }
+  
+  
+  // MARK: - Tests for ImageURL
+  
+  func test_ImageUrl_NotNil() {
+    
+    let json = mockProjectJSON(withLogoString: "http://clean-swift.com/wp-content/uploads/2015/08/Swift.png")
+    let project = Project(fromJSON: json)
+    
+    let url = URL(string: "http://clean-swift.com/wp-content/uploads/2015/08/Swift.png")
+    
+    XCTAssertEqual(project.logoImageUrl, url)
+    
+  }
+  
+  func test_ImageUrl_Nil() {
+    
+    let json = mockProjectJSON()
+    let project = Project(fromJSON: json)
+    
+    XCTAssertNil(project.logoImageUrl)
+    
+  }
+  
 }
+
+
+
+
+
+
+
+
+
+
+
+
