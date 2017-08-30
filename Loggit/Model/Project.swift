@@ -22,6 +22,11 @@ class Project: Object {
   dynamic var name = ""
   
   
+  // MARK: - Primary Key
+  override static func primaryKey() -> String? {
+    return "id"
+  }
+  
   // MARK: - Computed Properties
   
   var logoImageUrl: URL? {
