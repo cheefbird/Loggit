@@ -13,6 +13,7 @@ target 'Loggit' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Action'
+  pod 'Kingfisher'
 
   target 'LoggitTests' do
     inherit! :search_paths
