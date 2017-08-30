@@ -16,7 +16,7 @@ enum TeamworkRouter: URLRequestConvertible {
   
   // MARK: - Cases
   case getProjects
-  case getProject(Int)
+  case getProject(withId: Int)
   
   
   // MARK: - Computed Properties
