@@ -13,6 +13,15 @@ import RxCocoa
 
 struct ProjectListViewViewModel {
   
+  let projectService: ProjectService
   
+  init() {
+    projectService = ProjectService()
+  }
+  
+  
+  var projects: Observable<[Project]> {
+    return projectService.getAllProjects()
+  }
   
 }

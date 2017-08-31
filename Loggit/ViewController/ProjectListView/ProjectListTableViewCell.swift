@@ -17,6 +17,13 @@ class ProjectListTableViewCell: UITableViewCell {
   @IBOutlet weak var favoriteButton: UIButton!
   
   
+  // MARK: - Actions
+  
+  @IBAction func toggleFavorite() {
+    favoriteButton.isSelected = !favoriteButton.isSelected
+  }
+  
+  
   // MARK: - Lifecycle
   
   override func awakeFromNib() {
@@ -26,10 +33,11 @@ class ProjectListTableViewCell: UITableViewCell {
   
   // MARK: - Methods
   
-  func configure() {
-    nameLabel.text = "SleepScore Mobile Application That May Not Launch"
-    companyLabel.text = "SleepScore Labs"
-    
+  func configure(usingProject project: Project) {
+    nameLabel.text = project.name
+    companyLabel.text = project.companyName
+    favoriteButton.isSelected = project.starred
   }
+
   
 }

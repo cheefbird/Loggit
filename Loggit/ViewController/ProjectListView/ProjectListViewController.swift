@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ProjectListViewController: UIViewController {
   
@@ -16,8 +18,23 @@ class ProjectListViewController: UIViewController {
   @IBOutlet weak var segmentedControl: UISegmentedControl!
   
   
+  // MARK: - Properties
+  
+  var projects: [Project] = [] {
+    didSet {
+      tableView.reloadData()
+    }
+  }
+  
+  var viewModel: ProjectListViewViewModel!
+  
+  let disposeBag = DisposeBag()
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    viewModel = ProjectListViewViewModel()
     
     navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
     navigationController?.navigationBar.shadowImage = UIImage()
@@ -25,7 +42,18 @@ class ProjectListViewController: UIViewController {
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 60
     
+    viewModel.projects
+      .subscribe(onNext: { [weak self] projects in
+        self?.projects = projects
+      })
+      .disposed(by: disposeBag)
+    
   }
+  
+  
+  // MARK: - Methods
+  
+  
   
 }
 
@@ -44,7 +72,7 @@ extension ProjectListViewController: UITableViewDataSource {
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return projects.count
   }
   
   
@@ -52,7 +80,7 @@ extension ProjectListViewController: UITableViewDataSource {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath) as! ProjectListTableViewCell
     
-    cell.configure()
+    cell.configure(usingProject: projects[indexPath.row])
     
     return cell
     
