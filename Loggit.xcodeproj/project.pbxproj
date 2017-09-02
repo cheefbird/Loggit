@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063343731F5A8C090068698E /* ProjectServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063343721F5A8C090068698E /* ProjectServiceError.swift */; };
 		064A5D241F568F1F007D1838 /* ProjectListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064A5D231F568F1F007D1838 /* ProjectListViewViewModel.swift */; };
 		064A5D271F56909B007D1838 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064A5D261F56909B007D1838 /* Project.swift */; };
 		064E91FA1F53FE1A0040332A /* TeamworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064E91F91F53FE1A0040332A /* TeamworkClientTests.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		063343721F5A8C090068698E /* ProjectServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectServiceError.swift; path = Services/ProjectServiceError.swift; sourceTree = "<group>"; };
 		064A5D231F568F1F007D1838 /* ProjectListViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectListViewViewModel.swift; path = ViewController/ProjectListView/ProjectListViewViewModel.swift; sourceTree = "<group>"; };
 		064A5D261F56909B007D1838 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Model/Project.swift; sourceTree = "<group>"; };
 		064E91F91F53FE1A0040332A /* TeamworkClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamworkClientTests.swift; path = "Test Cases/TeamworkClientTests.swift"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				065E71451F56AE5100300A9D /* ProjectService.swift */,
 				066F1DA41F57DE4D00B3BA06 /* PersistentService.swift */,
+				063343721F5A8C090068698E /* ProjectServiceError.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				06E92BB91F4D5BF800396356 /* TeamworkClient.swift in Sources */,
 				064A5D271F56909B007D1838 /* Project.swift in Sources */,
 				065E71461F56AE5100300A9D /* ProjectService.swift in Sources */,
+				063343731F5A8C090068698E /* ProjectServiceError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
