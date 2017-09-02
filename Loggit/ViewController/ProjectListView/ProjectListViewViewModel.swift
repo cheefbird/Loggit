@@ -26,7 +26,6 @@ class ProjectListViewViewModel {
   
   init() {
     projectService = ProjectService()
-    updateProjects()
   }
   
   
@@ -38,13 +37,16 @@ class ProjectListViewViewModel {
   // MARK: - Methods
   
   /// Refresh the projects Variable in the view model with the latest array of projects.
-  func updateProjects() {
+  func updateProjects(errorHandler: @escaping ((String) -> Void)) {
     
     projectService.getAllProjects()
       .subscribe(onNext: { [weak self] in
         self?.projects.value = $0
+        }, onError: { error in
+          errorHandler(error.localizedDescription)
       })
       .disposed(by: disposeBag)
+    
   }
   
   

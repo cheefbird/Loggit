@@ -15,18 +15,25 @@ import SwiftyJSON
 
 class ProjectService {
   
-  
   /// Fetch all Projects from Teamwork API that current user has access to.
   ///
   /// - Returns: Observable Array of Project Objects.
-  
+  /// - Throws: ProjectServiceError from bad API responses.
   func getAllProjects() -> Observable<[Project]> {
     
     return RxAlamofire.requestJSON(TeamworkRouter.getProjects)
-      .filter { response, _ in
-        return 200..<300 ~= response.statusCode
+      .observeOn(MainScheduler.instance)
+      .flatMap { [weak self] (response, responseData) -> Observable<Any> in
+        let code = response.statusCode
+        
+        guard 200..<300 ~= code else {
+          let responseError = self?.getError(forCode: code)
+          return .error(responseError!)
+        }
+        
+        return .just(responseData)
       }
-      .map { _, jsonResponse -> [JSON] in
+      .map { jsonResponse -> [JSON] in
         
         let jsonResponse = JSON(jsonResponse)
         return jsonResponse["projects"].arrayValue
@@ -43,6 +50,29 @@ class ProjectService {
 }
 
 
+// MARK: - Error Helper
+extension ProjectService {
+  
+  /// Convert error code to ProjectServiceError
+  ///
+  /// - Parameter code: HTTP response code as Int
+  /// - Returns: ProjectServiceError
+  func getError(forCode code: Int) -> ProjectServiceError {
+    
+    switch code {
+    case 401:
+      return ProjectServiceError.userNotAuthorized
+      
+    case 404:
+      return ProjectServiceError.projectNotFound(0)
+      
+    default:
+      return ProjectServiceError.unhandledCode
+      
+    }
+  }
+  
+}
 
 
 
