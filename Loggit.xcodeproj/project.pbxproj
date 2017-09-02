@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		063343731F5A8C090068698E /* ProjectServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063343721F5A8C090068698E /* ProjectServiceError.swift */; };
+		063343751F5AA0960068698E /* UIViewControllerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063343741F5AA0960068698E /* UIViewControllerHelpers.swift */; };
 		064A5D241F568F1F007D1838 /* ProjectListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064A5D231F568F1F007D1838 /* ProjectListViewViewModel.swift */; };
 		064A5D271F56909B007D1838 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064A5D261F56909B007D1838 /* Project.swift */; };
 		064E91FA1F53FE1A0040332A /* TeamworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064E91F91F53FE1A0040332A /* TeamworkClientTests.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		063343721F5A8C090068698E /* ProjectServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectServiceError.swift; path = Services/ProjectServiceError.swift; sourceTree = "<group>"; };
+		063343741F5AA0960068698E /* UIViewControllerHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerHelpers.swift; path = Helpers/UIViewControllerHelpers.swift; sourceTree = "<group>"; };
 		064A5D231F568F1F007D1838 /* ProjectListViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProjectListViewViewModel.swift; path = ViewController/ProjectListView/ProjectListViewViewModel.swift; sourceTree = "<group>"; };
 		064A5D261F56909B007D1838 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Model/Project.swift; sourceTree = "<group>"; };
 		064E91F91F53FE1A0040332A /* TeamworkClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamworkClientTests.swift; path = "Test Cases/TeamworkClientTests.swift"; sourceTree = "<group>"; };
@@ -117,6 +119,14 @@
 				06F91A6D1F4D429A00FAE71F /* Assets.xcassets */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		063343761F5AA09A0068698E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				063343741F5AA0960068698E /* UIViewControllerHelpers.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		064A5D251F56907E007D1838 /* Model */ = {
@@ -231,6 +241,7 @@
 				063343421F5A6E7A0068698E /* Assets */,
 				06F91A6F1F4D429A00FAE71F /* LaunchScreen.storyboard */,
 				06F91A721F4D429A00FAE71F /* Info.plist */,
+				063343761F5AA09A0068698E /* Helpers */,
 			);
 			path = Loggit;
 			sourceTree = "<group>";
@@ -598,6 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				063343751F5AA0960068698E /* UIViewControllerHelpers.swift in Sources */,
 				06E92BB71F4D5AC200396356 /* TeamworkSettings.swift in Sources */,
 				06E9B7571F554658006DF011 /* ProjectListTableViewCell.swift in Sources */,
 				066F1DA51F57DE4D00B3BA06 /* PersistentService.swift in Sources */,
