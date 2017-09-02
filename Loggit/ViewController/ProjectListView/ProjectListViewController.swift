@@ -20,12 +20,6 @@ class ProjectListViewController: UIViewController {
   
   // MARK: - Properties
   
-  var projects: [Project] = [] {
-    didSet {
-      tableView.reloadData()
-    }
-  }
-  
   var viewModel: ProjectListViewViewModel!
   
   let disposeBag = DisposeBag()
@@ -34,24 +28,37 @@ class ProjectListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    viewModel = ProjectListViewViewModel()
-    
-    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-    navigationController?.navigationBar.shadowImage = UIImage()
-    
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 60
     
-    viewModel.projects
-      .subscribe(onNext: { [weak self] projects in
-        self?.projects = projects
+    viewModel = ProjectListViewViewModel()
+    
+    viewModel.projects.asDriver()
+      .skip(1)
+      .drive(onNext: { [weak self] _ in
+        self?.tableView.reloadData()
       })
       .disposed(by: disposeBag)
     
   }
   
   
-  // MARK: - Methods
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    guard viewModel != nil else { return }
+    
+//    viewModel.updateProjects()
+    
+  }
+  
+  
+  // MARK: - Setup View
+  
+  private func setupNavBar() {
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+    navigationController?.navigationBar.shadowImage = UIImage()
+  }
   
   
   
@@ -72,7 +79,10 @@ extension ProjectListViewController: UITableViewDataSource {
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return projects.count
+    
+    guard viewModel.numberOfProjects > 0 else { return 1 }
+    return viewModel.numberOfProjects
+    
   }
   
   
@@ -80,7 +90,12 @@ extension ProjectListViewController: UITableViewDataSource {
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath) as! ProjectListTableViewCell
     
-    cell.configure(usingProject: projects[indexPath.row])
+    guard let project = viewModel.project(at: indexPath.row) else {
+      cell.empty()
+      return cell
+    }
+    
+    cell.configure(usingProject: project)
     
     return cell
     
