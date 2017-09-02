@@ -38,6 +38,12 @@ class ProjectListTableViewCell: UITableViewCell {
     companyLabel.text = project.companyName
     favoriteButton.isSelected = project.starred
   }
+  
+  
+  func empty() { 
+    nameLabel.text = "North Korean Rocket Skates"
+    companyLabel.text = "ACME Corporation"
+  }
 
   
 }
