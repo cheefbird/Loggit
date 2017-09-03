@@ -35,6 +35,20 @@ class ProjectService {
         }
     }
   }
+  
+  
+  /// Change a project's starred property to its opposite.
+  ///
+  /// - Parameter project: Project to change
+  /// - Returns: Observable of the same project, now updated.
+  func toggleFavorite(_ project: Project) -> Observable<Project> {
+    
+    project.starred = !project.starred
+    
+    return .just(project)
+    
+  }
+  
 }
 
 

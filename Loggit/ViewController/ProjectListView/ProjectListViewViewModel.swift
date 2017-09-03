@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Action
 
 
 class ProjectListViewViewModel {
@@ -55,6 +56,7 @@ class ProjectListViewViewModel {
     
   }
   
+  /// Filter the list of projects used to populate the view to only include ones with a starred property equal to true.
   func removeUnstarredProjects() {
     let projects = self.projects.value
     
@@ -80,5 +82,15 @@ class ProjectListViewViewModel {
     return projects.value[index]
   }
   
+  
+  // MARK: - CocoaActions
+  
+  func toggleFavorite(_ project: Project) -> CocoaAction {
+    
+    return CocoaAction {
+      return self.projectService.toggleFavorite(project).map { _ in }
+    }
+    
+  }
   
 }

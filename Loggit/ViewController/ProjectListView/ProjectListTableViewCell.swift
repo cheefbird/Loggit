@@ -9,12 +9,11 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Action
 
 class ProjectListTableViewCell: UITableViewCell {
   
   // MARK: - Properties
-  
-  var project: Project?
   
   let disposeBag = DisposeBag()
   
@@ -41,27 +40,23 @@ class ProjectListTableViewCell: UITableViewCell {
   
   // MARK: - Methods
   
-  func configure(usingProject project: Project) {
-    self.project = project
+  func configure(usingProject project: Project, toggleAction: CocoaAction) {
+    
+    favoriteButton.rx.action = toggleAction
+    
     nameLabel.text = project.name
     companyLabel.text = project.companyName
-    favoriteButton.isSelected = project.starred
     
-    favoriteButton.rx.tap
-      .subscribe(onNext: {
-        self.toggleFavorite()
+    project.rx.observe(Bool.self, "starred")
+      .subscribe(onNext: { [weak self] isFavorite in
+        self?.favoriteButton.isSelected = isFavorite!
       })
       .disposed(by: disposeBag)
+    
   }
   
   
-  private func toggleFavorite() {
-    if let project = project {
-      project.starred = !project.starred
 
-    }
-    favoriteButton.isSelected = !favoriteButton.isSelected
-  }
   
   
   func empty() { 

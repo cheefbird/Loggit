@@ -102,7 +102,7 @@ extension ProjectListViewController: UITableViewDataSource {
       return cell
     }
     
-    cell.configure(usingProject: project)
+    cell.configure(usingProject: project, toggleAction: viewModel.toggleFavorite(project))
     
     return cell
     
