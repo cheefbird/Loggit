@@ -25,7 +25,12 @@ class ProjectListViewViewModel {
   // MARK: - Init
   
   init() {
+    debugPrint("** ProjectService Initialized **")
     projectService = ProjectService()
+  }
+  
+  deinit {
+    debugPrint("** ProjectService Deinitialized **")
   }
   
   
