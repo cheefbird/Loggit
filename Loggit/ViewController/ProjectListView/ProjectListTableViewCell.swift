@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ProjectListTableViewCell: UITableViewCell {
+  
+  // MARK: - Properties
+  
+  var project: Project?
+  
+  let disposeBag = DisposeBag()
   
   // MARK: - Outlets
   
@@ -19,9 +27,9 @@ class ProjectListTableViewCell: UITableViewCell {
   
   // MARK: - Actions
   
-  @IBAction func toggleFavorite() {
-    favoriteButton.isSelected = !favoriteButton.isSelected
-  }
+//  @IBAction func toggleFavorite() {
+//    favoriteButton.isSelected = !favoriteButton.isSelected
+//  }
   
   
   // MARK: - Lifecycle
@@ -34,9 +42,16 @@ class ProjectListTableViewCell: UITableViewCell {
   // MARK: - Methods
   
   func configure(usingProject project: Project) {
+    self.project = project
     nameLabel.text = project.name
     companyLabel.text = project.companyName
     favoriteButton.isSelected = project.starred
+    
+    favoriteButton.rx.tap
+      .subscribe(onNext: {
+        self.project?.starred = self.favoriteButton.isSelected
+      })
+      .disposed(by: disposeBag)
   }
   
   

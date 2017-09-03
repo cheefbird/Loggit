@@ -72,9 +72,6 @@
                                                     </constraints>
                                                     <state key="normal" image="icon_favorite"/>
                                                     <state key="selected" image="icon_favorite_selected"/>
-                                                    <connections>
-                                                        <action selector="toggleFavorite" destination="ffY-Fh-TFa" eventType="touchUpInside" id="RZr-Rb-WIy"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
