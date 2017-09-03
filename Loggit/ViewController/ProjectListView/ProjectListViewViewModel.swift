@@ -22,15 +22,16 @@ class ProjectListViewViewModel {
   let disposeBag = DisposeBag()
   
   
+  
   // MARK: - Init
   
   init() {
-    debugPrint("** ProjectService Initialized **")
+    print("** ProjectService Initialized **")
     projectService = ProjectService()
   }
   
   deinit {
-    debugPrint("** ProjectService Deinitialized **")
+    print("** ProjectService Deinitialized **")
   }
   
   
@@ -52,6 +53,20 @@ class ProjectListViewViewModel {
       })
       .disposed(by: disposeBag)
     
+  }
+  
+  func removeUnstarredProjects() {
+    let projects = self.projects.value
+    
+    var favorites = [Project]()
+    
+    for project in projects {
+      if project.starred {
+        favorites.append(project)
+      }
+    }
+    
+    self.projects.value = favorites
   }
   
   

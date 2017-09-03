@@ -30,6 +30,7 @@ class ProjectListViewController: UIViewController {
     
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 60
+    setupNavBar()
     
     viewModel = ProjectListViewViewModel()
     
@@ -40,9 +41,21 @@ class ProjectListViewController: UIViewController {
       })
       .disposed(by: disposeBag)
     
-    viewModel.updateProjects { [weak self] errorText in
-      self?.displayAlert(title: "API Error", message: errorText)
-    }
+    segmentedControl.rx.selectedSegmentIndex.asObservable()
+      .subscribe(onNext: { [weak self] index in
+        switch index {
+        case 1:
+          self?.title = "Favorite Projects"
+          self?.viewModel.removeUnstarredProjects()
+          self?.tableView.reloadData()
+        default:
+          self?.title = "Projects"
+          self?.viewModel.updateProjects { errorText in
+            self?.displayAlert(title: "API Error", message: errorText)
+          }
+        }
+      })
+      .disposed(by: disposeBag)
     
   }
   
