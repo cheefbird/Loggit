@@ -21,19 +21,9 @@ class ProjectService {
   /// - Throws: ProjectServiceError from bad API responses.
   func getAllProjects() -> Observable<[Project]> {
     
-    return RxAlamofire.requestJSON(TeamworkRouter.getProjects)
+    let response = RxAlamofire.requestJSON(TeamworkRouter.getProjects)
       .observeOn(MainScheduler.instance)
-      .flatMap { [weak self] (response, responseData) -> Observable<Any> in
-        let code = response.statusCode
-        
-        guard 200..<300 ~= code else {
-          let responseError = self?.getError(forCode: code)
-          return .error(responseError!)
-        }
-        
-        return .just(responseData)
-      }
-      .map { jsonResponse -> [JSON] in
+      .map { _, jsonResponse -> [JSON] in
         
         let jsonResponse = JSON(jsonResponse)
         return jsonResponse["projects"].arrayValue
@@ -44,10 +34,10 @@ class ProjectService {
           return Project(fromJSON: project)
         }
     }
-    
+   return response
   }
-  
 }
+
 
 
 // MARK: - Error Helper
