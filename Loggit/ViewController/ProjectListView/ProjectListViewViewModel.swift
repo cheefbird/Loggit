@@ -43,7 +43,7 @@ class ProjectListViewViewModel {
       .subscribe(onNext: { [weak self] in
         self?.projects.value = $0
         }, onError: { error in
-          errorHandler(error.localizedDescription)
+          errorHandler("Your API key is invalid. Please re-enter your key to continue.")
       })
       .disposed(by: disposeBag)
     
