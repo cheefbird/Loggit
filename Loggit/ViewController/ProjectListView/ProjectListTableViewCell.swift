@@ -49,9 +49,18 @@ class ProjectListTableViewCell: UITableViewCell {
     
     favoriteButton.rx.tap
       .subscribe(onNext: {
-        self.project?.starred = self.favoriteButton.isSelected
+        self.toggleFavorite()
       })
       .disposed(by: disposeBag)
+  }
+  
+  
+  private func toggleFavorite() {
+    if let project = project {
+      project.starred = !project.starred
+
+    }
+    favoriteButton.isSelected = !favoriteButton.isSelected
   }
   
   
