@@ -21,7 +21,7 @@ class ProjectService {
   /// - Throws: ProjectServiceError from bad API responses.
   func getAllProjects() -> Observable<[Project]> {
     
-    let response = RxAlamofire.requestJSON(TeamworkRouter.getProjects)
+    return RxAlamofire.requestJSON(TeamworkRouter.getProjects)
       .observeOn(MainScheduler.instance)
       .map { _, jsonResponse -> [JSON] in
         
@@ -34,7 +34,6 @@ class ProjectService {
           return Project(fromJSON: project)
         }
     }
-   return response
   }
 }
 

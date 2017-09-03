@@ -40,15 +40,9 @@ class ProjectListViewController: UIViewController {
       })
       .disposed(by: disposeBag)
     
-  }
-  
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    
-    guard viewModel != nil else { return }
-    
-//    viewModel.updateProjects()
+    viewModel.updateProjects { [weak self] errorText in
+      self?.displayAlert(title: "API Error", message: errorText)
+    }
     
   }
   
