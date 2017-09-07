@@ -10,8 +10,10 @@ target 'Loggit' do
   pod 'Alamofire'
   pod 'RxAlamofire'
   pod 'RealmSwift'
+  pod 'RxRealm'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxDataSources'
   pod 'Action'
   pod 'Kingfisher'
 
