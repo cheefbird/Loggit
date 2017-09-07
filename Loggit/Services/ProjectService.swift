@@ -41,6 +41,7 @@ class ProjectService {
   ///
   /// - Parameter project: Project to change
   /// - Returns: Observable of the same project, now updated.
+  @discardableResult
   func toggleFavorite(_ project: Project) -> Observable<Project> {
     
     project.starred = !project.starred

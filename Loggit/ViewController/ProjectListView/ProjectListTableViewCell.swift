@@ -8,14 +8,13 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 import Action
 
 class ProjectListTableViewCell: UITableViewCell {
   
   // MARK: - Properties
   
-  let disposeBag = DisposeBag()
+  var disposeBag = DisposeBag()
   
   // MARK: - Outlets
   
@@ -35,6 +34,13 @@ class ProjectListTableViewCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+  }
+  
+  
+  override func prepareForReuse() {
+    favoriteButton.rx.action = nil
+    disposeBag = DisposeBag()
+    super.prepareForReuse()
   }
   
   
