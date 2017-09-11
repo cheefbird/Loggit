@@ -36,11 +36,23 @@ class ProjectService: PersistentService {
   /// - Parameter project: Project to change
   /// - Returns: Observable of the same project, now updated.
   @discardableResult
-  func toggleFavorite(_ project: Project) -> Observable<Project> {
+  func toggleFavorite(_ project: Project) -> Observable<Void> {
     
-    project.starred = !project.starred
+    let realm = try! Realm()
     
-    return .just(project)
+    guard let match = realm.object(ofType: Project.self, forPrimaryKey: project.id) else {
+      print("ERROR attempting to toggleFavorite: Project ID \(project.id) not found!")
+      return .error(ProjectServiceError.projectNotFound(project.id))
+    }
+    
+    try! realm.write {
+      match.starred = !match.starred
+    }
+    
+    
+    return .empty()
+    
+    
     
   }
   
@@ -82,29 +94,29 @@ class ProjectService: PersistentService {
   }
 }
 
+
+// MARK: - Error Helper
+extension ProjectService {
   
-  // MARK: - Error Helper
-  extension ProjectService {
+  /// Convert error code to ProjectServiceError
+  ///
+  /// - Parameter code: HTTP response code as Int
+  /// - Returns: ProjectServiceError
+  func getError(forCode code: Int) -> ProjectServiceError {
     
-    /// Convert error code to ProjectServiceError
-    ///
-    /// - Parameter code: HTTP response code as Int
-    /// - Returns: ProjectServiceError
-    func getError(forCode code: Int) -> ProjectServiceError {
+    switch code {
+    case 401:
+      return ProjectServiceError.userNotAuthorized
       
-      switch code {
-      case 401:
-        return ProjectServiceError.userNotAuthorized
-        
-      case 404:
-        return ProjectServiceError.projectNotFound(0)
-        
-      default:
-        return ProjectServiceError.unhandledCode
-        
-      }
+    case 404:
+      return ProjectServiceError.projectNotFound(0)
+      
+    default:
+      return ProjectServiceError.unhandledCode
+      
     }
-    
+  }
+  
 }
 
 
