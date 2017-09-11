@@ -35,16 +35,18 @@ class ProjectListViewController: UIViewController {
     // TODO: Need to refactor this out to delegate or coordinator. Should not be creating this in VC.
     viewModel = ProjectListViewViewModel(selectedSegment: segmentedControl.rx.selectedSegmentIndex.asDriver(), projectService: ProjectService())
     
-    let projects = viewModel.projects.asDriver()
-    
-    projects
+    viewModel.projects.asDriver()
       .drive(onNext: { [weak self] _ in
         self?.tableView.reloadData()
         debugPrint(RxSwift.Resources.total)
       })
       .disposed(by: disposeBag)
     
-    
+    viewModel.title.asDriver()
+      .drive(onNext: { [weak self] title in
+        self?.title = title
+      })
+      .disposed(by: disposeBag)
   }
   
   

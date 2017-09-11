@@ -23,8 +23,7 @@ class ProjectListViewViewModel {
   
   let disposeBag = DisposeBag()
   
-  
-  
+  let title = Variable<String>("Title")
   
   
   
@@ -66,6 +65,9 @@ class ProjectListViewViewModel {
     
     if favorites {
       results = results.filter("starred = true")
+      title.value = "Favorite Projects"
+    } else {
+      title.value  = "All Projects"
     }
     
     for project in results {
