@@ -50,7 +50,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ffY-Fh-TFa" id="Uj0-Di-33Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEA-2D-rf0">
@@ -147,11 +147,11 @@
             </objects>
             <point key="canvasLocation" x="797.60000000000002" y="247.82608695652175"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Projects-->
         <scene sceneID="Ffp-6d-aXA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hSq-TR-V1d" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="g5h-dz-Iy1"/>
+                    <tabBarItem key="tabBarItem" title="Projects" image="projects-icon" selectedImage="projects-icon-selected" id="g5h-dz-Iy1"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="i1B-zI-dQq">
@@ -172,7 +172,7 @@
             </objects>
             <point key="canvasLocation" x="1736.8" y="247.82608695652175"/>
         </scene>
-        <!--View Controller-->
+        <!--Timer-->
         <scene sceneID="lGD-eL-ww5">
             <objects>
                 <viewController id="PWE-N8-Aan" sceneMemberID="viewController">
@@ -185,7 +185,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="QLT-0Q-NeX"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="icon_stopwatch" selectedImage="icon_stopwatch_selected" id="QLT-0Q-NeX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfD-CT-wv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,5 +195,9 @@
     <resources>
         <image name="icon_favorite" width="40" height="40"/>
         <image name="icon_favorite_selected" width="40" height="40"/>
+        <image name="icon_stopwatch" width="22" height="25"/>
+        <image name="icon_stopwatch_selected" width="23" height="25"/>
+        <image name="projects-icon" width="25" height="25"/>
+        <image name="projects-icon-selected" width="25" height="25"/>
     </resources>
 </document>
