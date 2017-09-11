@@ -94,7 +94,7 @@ class ProjectListViewViewModel {
   func toggleFavorite(_ project: Project) -> CocoaAction {
     
     return CocoaAction {
-      return self.projectService.toggleFavorite(project).map { _ in }
+      return self.projectService.toggleFavorite(project)
     }
     
   }
