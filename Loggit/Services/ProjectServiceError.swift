@@ -12,6 +12,7 @@ import Foundation
 enum ProjectServiceError: Error {
   
   case userNotAuthorized
+  case emptyResponse
   case projectNotFound(Int)
   case unhandledCode
   
@@ -24,6 +25,8 @@ extension ProjectServiceError: LocalizedError {
     switch self {
     case .projectNotFound(let id):
       return prefix + "Project id \(id) not found. Please try again."
+    case .emptyResponse:
+      return prefix + "Did not receive a response from the server."
     case .userNotAuthorized:
       return prefix + "API key not authorized to access this account."
     case .unhandledCode:

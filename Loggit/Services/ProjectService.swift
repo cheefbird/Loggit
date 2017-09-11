@@ -11,31 +11,25 @@ import RxSwift
 import RxCocoa
 import RxAlamofire
 import SwiftyJSON
+import RealmSwift
 
 
-class ProjectService {
+class ProjectService: PersistentService {
   
-  /// Fetch all Projects from Teamwork API that current user has access to.
-  ///
-  /// - Returns: Observable Array of Project Objects.
-  /// - Throws: ProjectServiceError from bad API responses.
-  func getAllProjects() -> Observable<[Project]> {
-    
-    return RxAlamofire.requestJSON(TeamworkRouter.getProjects)
-      .observeOn(MainScheduler.instance)
-      .map { _, jsonResponse -> [JSON] in
-        
-        let jsonResponse = JSON(jsonResponse)
-        return jsonResponse["projects"].arrayValue
-        
-      }
-      .map { jsonArray in
-        return jsonArray.map { project in
-          return Project(fromJSON: project)
-        }
-    }
+  
+  init() {
+    refreshLocal()
   }
   
+  // MARK: - Methods
+  
+  @discardableResult
+  func projects() -> Results<Project> {
+    let realm = try! Realm()
+    
+    return realm.objects(Project.self)
+    
+  }
   
   /// Change a project's starred property to its opposite.
   ///
@@ -50,32 +44,67 @@ class ProjectService {
     
   }
   
+  
+  // MARK: - Private Methods
+  
+  
+  /// Request all projects from server and update local realm database.
+  ///
+  /// - Returns: Discardable array of projects
+  @discardableResult
+  private func refreshLocal() -> Observable<[Project]> {
+    
+    let projects = withRealm("fetch and save all projects") { realm -> Observable<[Project]> in
+      return RxAlamofire.requestJSON(TeamworkRouter.getProjects)
+        .observeOn(MainScheduler.instance)
+        .map { _, jsonResponse -> [JSON] in
+          
+          let jsonResponse = JSON(jsonResponse)
+          return jsonResponse["projects"].arrayValue
+          
+        }
+        .map { jsonArray in
+          return jsonArray.map { project in
+            return Project(fromJSON: project)
+          }
+        }
+        .do(onNext: { results in
+          for project in results {
+            try! realm.write {
+              realm.add(project, update: true)
+            }
+          }
+        })
+    }
+    
+    return projects ?? .error(ProjectServiceError.emptyResponse)
+    
+  }
 }
 
-
-
-// MARK: - Error Helper
-extension ProjectService {
   
-  /// Convert error code to ProjectServiceError
-  ///
-  /// - Parameter code: HTTP response code as Int
-  /// - Returns: ProjectServiceError
-  func getError(forCode code: Int) -> ProjectServiceError {
+  // MARK: - Error Helper
+  extension ProjectService {
     
-    switch code {
-    case 401:
-      return ProjectServiceError.userNotAuthorized
+    /// Convert error code to ProjectServiceError
+    ///
+    /// - Parameter code: HTTP response code as Int
+    /// - Returns: ProjectServiceError
+    func getError(forCode code: Int) -> ProjectServiceError {
       
-    case 404:
-      return ProjectServiceError.projectNotFound(0)
-      
-    default:
-      return ProjectServiceError.unhandledCode
-      
+      switch code {
+      case 401:
+        return ProjectServiceError.userNotAuthorized
+        
+      case 404:
+        return ProjectServiceError.projectNotFound(0)
+        
+      default:
+        return ProjectServiceError.unhandledCode
+        
+      }
     }
-  }
-  
+    
 }
 
 

@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Action
+import RealmSwift
 
 
 class ProjectListViewViewModel {
@@ -24,15 +25,30 @@ class ProjectListViewViewModel {
   
   
   
+  
+  
+  
+  
   // MARK: - Init
   
-  init() {
-    print("** ProjectService Initialized **")
-    projectService = ProjectService()
+  init(selectedSegment: Driver<Int>, projectService: ProjectService) {
+    print("** ProjectListVM Initialized **")
+    self.projectService = projectService
+    
+    selectedSegment
+      .distinctUntilChanged()
+      .map { index in
+        return index == 0 ? false : true
+      }
+      .drive(onNext: { [weak self] favorites in
+        self?.refreshProjects(favorites: favorites)
+      })
+      .disposed(by: disposeBag)
+    
   }
   
   deinit {
-    print("** ProjectService Deinitialized **")
+    print("** ProjectListVM Deinitialized **")
   }
   
   
@@ -43,34 +59,22 @@ class ProjectListViewViewModel {
   
   // MARK: - Methods
   
-  /// Refresh the projects Variable in the view model with the latest array of projects.
-  func updateProjects(errorHandler: @escaping ((String) -> Void)) {
+  func refreshProjects(favorites: Bool) {
+    var projectArray = [Project]()
     
-    projectService.getAllProjects()
-      .subscribe(onNext: { [weak self] in
-        self?.projects.value = $0
-        }, onError: { error in
-          errorHandler("Your API key is invalid. Please re-enter your key to continue.")
-      })
-      .disposed(by: disposeBag)
+    var results = projectService.projects()
     
-  }
-  
-  /// Filter the list of projects used to populate the view to only include ones with a starred property equal to true.
-  func removeUnstarredProjects() {
-    let projects = self.projects.value
-    
-    var favorites = [Project]()
-    
-    for project in projects {
-      if project.starred {
-        favorites.append(project)
-      }
+    if favorites {
+      results = results.filter("starred = true")
     }
     
-    self.projects.value = favorites
+    for project in results {
+      projectArray.append(project)
+    }
+    
+    self.projects.value = projectArray
+    
   }
-  
   
   /// Acess the project at a specific index, if it exists.
   ///

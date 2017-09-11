@@ -32,30 +32,18 @@ class ProjectListViewController: UIViewController {
     tableView.estimatedRowHeight = 60
     setupNavBar()
     
-    viewModel = ProjectListViewViewModel()
+    // TODO: Need to refactor this out to delegate or coordinator. Should not be creating this in VC.
+    viewModel = ProjectListViewViewModel(selectedSegment: segmentedControl.rx.selectedSegmentIndex.asDriver(), projectService: ProjectService())
     
-    viewModel.projects.asDriver()
-      .skip(1)
+    let projects = viewModel.projects.asDriver()
+    
+    projects
       .drive(onNext: { [weak self] _ in
         self?.tableView.reloadData()
+        debugPrint(RxSwift.Resources.total)
       })
       .disposed(by: disposeBag)
     
-    segmentedControl.rx.selectedSegmentIndex.asObservable()
-      .subscribe(onNext: { [weak self] index in
-        switch index {
-        case 1:
-          self?.title = "Favorite Projects"
-          self?.viewModel.removeUnstarredProjects()
-          self?.tableView.reloadData()
-        default:
-          self?.title = "Projects"
-          self?.viewModel.updateProjects { errorText in
-            self?.displayAlert(title: "API Error", message: errorText)
-          }
-        }
-      })
-      .disposed(by: disposeBag)
     
   }
   
