@@ -119,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2676" y="247.82608695652175"/>
+            <point key="canvasLocation" x="-918" y="1116"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vrd-mV-gWN">
@@ -146,7 +146,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yB1-dX-ebT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="797.60000000000002" y="247.82608695652175"/>
+            <point key="canvasLocation" x="361" y="-442"/>
         </scene>
         <!--Projects-->
         <scene sceneID="Ffp-6d-aXA">
@@ -172,7 +172,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waT-1P-AEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1736.8" y="247.82608695652175"/>
+            <point key="canvasLocation" x="-918" y="372"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="lGD-eL-ww5">
@@ -186,59 +186,40 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nVZ-GQ-zm1">
-                                <rect key="frame" x="67" y="213" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QVG-Pc-3SX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sHV-am-CYr">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sHV-am-CYr" id="ZkQ-sZ-u66">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7B-0V-O2n">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EPm-60-386">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvK-3w-vil">
-                                                <rect key="frame" x="166.5" y="0.0" width="42" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.96545141940000001" green="0.79766589399999999" blue="0.0041561867110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9R-Ms-Jai">
-                                                <rect key="frame" x="166.5" y="25.5" width="42" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.96545141940000001" green="0.79766589399999999" blue="0.0041561867110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="EPm-60-386" firstAttribute="leading" secondItem="Y7B-0V-O2n" secondAttribute="leading" id="QlK-Tm-xDy"/>
-                                    <constraint firstAttribute="bottom" secondItem="EPm-60-386" secondAttribute="bottom" id="WgQ-Rj-uEp"/>
-                                    <constraint firstItem="EPm-60-386" firstAttribute="top" secondItem="Y7B-0V-O2n" secondAttribute="top" id="p9d-44-O3N"/>
-                                    <constraint firstAttribute="trailing" secondItem="EPm-60-386" secondAttribute="trailing" id="xkL-NP-dHt"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Y7B-0V-O2n" firstAttribute="leading" secondItem="00w-La-Kfc" secondAttribute="leading" id="UDJ-Ch-bF0"/>
-                            <constraint firstItem="Y7B-0V-O2n" firstAttribute="top" secondItem="D2b-70-hHt" secondAttribute="bottom" id="UdV-mJ-d4G"/>
-                            <constraint firstAttribute="trailing" secondItem="Y7B-0V-O2n" secondAttribute="trailing" id="kle-xi-5Jt"/>
+                            <constraint firstItem="QVG-Pc-3SX" firstAttribute="top" secondItem="D2b-70-hHt" secondAttribute="bottom" id="1sT-fG-nhP"/>
+                            <constraint firstItem="QVG-Pc-3SX" firstAttribute="leading" secondItem="00w-La-Kfc" secondAttribute="leading" id="8Kd-YV-k8c"/>
+                            <constraint firstItem="tkM-u8-M9w" firstAttribute="top" secondItem="QVG-Pc-3SX" secondAttribute="bottom" id="t2X-1c-zic"/>
+                            <constraint firstAttribute="trailing" secondItem="QVG-Pc-3SX" secondAttribute="trailing" id="xME-Be-API"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AVf-E0-BGw">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qEn-lu-H7s">
                             <connections>
-                                <segue destination="Owp-gh-WOv" kind="presentation" id="FNo-XN-hA5"/>
+                                <segue destination="Owp-gh-WOv" kind="presentation" identifier="createTimeLog" id="FNo-XN-hA5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfD-CT-wv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2676" y="1163.568215892054"/>
+            <point key="canvasLocation" x="361" y="1117"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dV6-2I-QiO">
@@ -442,7 +423,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gO4-yf-ZFC" customClass="CustomButton" customModule="Loggit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="94.5" width="343" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                <state key="normal" title="Create Log">
+                                                <state key="normal" title="Create Log Entry">
                                                     <color key="titleColor" red="0.96545141940000001" green="0.79766589399999999" blue="0.0041561867110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -483,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbI-CT-SPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3631.1999999999998" y="1186.9565217391305"/>
+            <point key="canvasLocation" x="1169" y="1114"/>
         </scene>
         <!--Timer-->
         <scene sceneID="aH8-hL-9c9">
@@ -509,7 +490,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idM-m9-ge1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1736.8" y="1163.568215892054"/>
+            <point key="canvasLocation" x="361" y="372"/>
         </scene>
     </scenes>
     <resources>
