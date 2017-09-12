@@ -26,6 +26,7 @@
 		06F91A6E1F4D429A00FAE71F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06F91A6D1F4D429A00FAE71F /* Assets.xcassets */; };
 		06F91A711F4D429A00FAE71F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F91A6F1F4D429A00FAE71F /* LaunchScreen.storyboard */; };
 		06F91A871F4D429A00FAE71F /* LoggitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F91A861F4D429A00FAE71F /* LoggitUITests.swift */; };
+		06FB29BA1F6789B4007DBB50 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FB29B91F6789B4007DBB50 /* CustomButton.swift */; };
 		06FBA82C1F612AC600257679 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FBA82B1F612AC600257679 /* BindableType.swift */; };
 		42FF5CBCF2B83DADE6FE63C3 /* Pods_Loggit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B85EBD4F67693E13F74AC58 /* Pods_Loggit.framework */; };
 		9AF1857CEFD2F895AB7BF4F8 /* Pods_LoggitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1544705B91334E1B75433A33 /* Pods_LoggitTests.framework */; };
@@ -76,6 +77,7 @@
 		06F91A821F4D429A00FAE71F /* LoggitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F91A861F4D429A00FAE71F /* LoggitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggitUITests.swift; sourceTree = "<group>"; };
 		06F91A881F4D429A00FAE71F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06FB29B91F6789B4007DBB50 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = Helpers/CustomButton.swift; sourceTree = "<group>"; };
 		06FBA82B1F612AC600257679 /* BindableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BindableType.swift; path = ViewController/Bindable/BindableType.swift; sourceTree = "<group>"; };
 		1544705B91334E1B75433A33 /* Pods_LoggitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoggitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20515EC1C9C270B9E9F1342D /* Pods-LoggitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoggitUITests/Pods-LoggitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				063343741F5AA0960068698E /* UIViewControllerHelpers.swift */,
+				06FB29B91F6789B4007DBB50 /* CustomButton.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				066F1DA51F57DE4D00B3BA06 /* PersistentService.swift in Sources */,
 				06E92BBF1F4D5DE300396356 /* TeamworkRouter.swift in Sources */,
 				06FBA82C1F612AC600257679 /* BindableType.swift in Sources */,
+				06FB29BA1F6789B4007DBB50 /* CustomButton.swift in Sources */,
 				064A5D241F568F1F007D1838 /* ProjectListViewViewModel.swift in Sources */,
 				06F91A691F4D429A00FAE71F /* ProjectListViewController.swift in Sources */,
 				06F91A671F4D429A00FAE71F /* AppDelegate.swift in Sources */,
